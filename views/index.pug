@@ -3,3 +3,30 @@ html
     title= title
   body
     h1= message
+    form(
+      action="csv"
+      type="GET")
+      h2 Columns
+      ul#property-list
+        each property in properties
+          li
+            label
+              input(
+                type="checkbox"
+                name=property
+                checked="checked")
+              span.label= property
+      .date-range
+        dl
+          dt Start Date
+          dd
+            input(
+              type="date"
+              name="startDate")
+          dt End Date
+          dd
+            input(
+              type="date"
+              name="endDate")
+      button Go
+

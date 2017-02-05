@@ -1,5 +1,4 @@
-const levelup = require('levelup')
-const db = levelup('./data')
+const gettingRecords = require('./data')
 
 const rand = (max, min = 0) => Math.floor((max + min) * Math.random() - min)
 const pickRandom = (count, arr) =>
@@ -11,7 +10,13 @@ const app = express()
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Hey', message: 'Hello there!' })
+    gettingRecords.then(records => {
+        res.render('index', {
+            title: 'Hey',
+            message: `There are ${records.length} records`,
+            properties: Object.keys(records[0]),
+        })
+    })
 })
 
 app.listen(8121, () => {
