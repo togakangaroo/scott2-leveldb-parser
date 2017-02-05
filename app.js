@@ -9,14 +9,21 @@ const pickRandom = (count, arr) =>
 const records = []
 db.createReadStream({ keys: true, values: true })
     .on('data', ({key, value}) => {
-        const obj = JSON.parse(value)
-        records.push(obj)
-    })
-    .on('end', () => {
-        const objsToShow = pickRandom(5, records)
-        for(let obj of objsToShow) {
-            for(let k of Object.keys(obj))
-                console.log(`${k}\t\t${obj[k]}`)
-            console.log(`-----------------\n`)
+        try {
+            records.push(JSON.parse(value))
+        } catch(e) {
+            console.error(e)
         }
     })
+    .on('end', () => {
+        showRandomRecords()
+    })
+
+const showRandomRecords = () => {
+    const objsToShow = pickRandom(5, records)
+    for(let obj of objsToShow) {
+        for(let k of Object.keys(obj))
+            console.log(`${k}\t\t${obj[k]}`)
+        console.log(`-----------------\n`)
+    }
+}
