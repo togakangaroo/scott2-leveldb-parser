@@ -4,13 +4,13 @@
   "description": "Parsing leveldb from http://scott.dada.pink",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [
     "wetlands",
     "data"
   ],
+  "repository": "git@github.com:togakangaroo/scott2-leveldb-parser.git",
   "author": "gmauer@gmail.com",
   "license": "ISC",
   "dependencies": {
