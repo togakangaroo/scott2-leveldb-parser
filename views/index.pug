@@ -1,6 +1,6 @@
 html
   head
-    title= title
+    title Parse Data
   body
     h1= message
     form(
@@ -13,7 +13,7 @@ html
             label
               input(
                 type="checkbox"
-                name=property
+                name=`columns[${property}]`
                 checked="checked")
               span.label= property
       .date-range
@@ -22,11 +22,15 @@ html
           dd
             input(
               type="date"
-              name="startDate")
+              name="startDate"
+              required
+              )
           dt End Date
           dd
             input(
               type="date"
-              name="endDate")
-      button Go
+              name="endDate"
+              required
+              )
+      button Download
 
