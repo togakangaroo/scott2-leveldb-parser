@@ -38,10 +38,10 @@ app.get('/csv', (req, res) => {
         )
         .then((records) => records.map(r => pick(r, desiredColumns)))
         .then(records => {
-            console.log(`Outputing ${records.length}`)
+            console.log(`Outputing ${records.length} records`)
             res.csv([
-                uniqueKeysOfAll(records),
-                records.map(Object.values)
+                desiredColumns,
+                ...records.map(r => desiredColumns.map(c => r[c]))
             ])
         }).then(null, (err) => console.error(err))
 })
