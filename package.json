@@ -1,0 +1,20 @@
+{
+  "name": "scott2-leveldb-parser",
+  "version": "0.0.1",
+  "description": "Parsing leveldb from http://scott.dada.pink",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wetlands",
+    "data"
+  ],
+  "author": "gmauer@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "leveldown": "^1.5.3",
+    "levelup": "^1.3.3"
+  }
+}
